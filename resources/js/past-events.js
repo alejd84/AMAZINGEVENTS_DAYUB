@@ -13,7 +13,7 @@ for(let event of data.events){
         <div class="col mb-4">
             <div class="card past-card h-100 text-bg-dark border-dark">
                 <div class="card-header">
-                    PAST EVENT
+                    ${event.place}
                 </div>
                 <img src="${event.image}" class="card-img-top" style="height:10rem">
                 <div class="card-body">
@@ -21,7 +21,7 @@ for(let event of data.events){
                     <p class="card-text">${event.description}</p>
                 </div>    
                 <div class="card-footer d-flex justify-content-between"> 
-                    <h6>${event.price}</h6>               
+                    <h6><b>Assistance: </b>${event.assistance}</h6>              
                     <a href="#" class="btn btn-outline-light">Passed</a>
                 </div>
             </div>
