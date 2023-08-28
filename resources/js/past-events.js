@@ -1,6 +1,6 @@
-let pasteventscards = [];
+let pastEventsCards = [];
 
-let OldCard = document.getElementById("OldCards")
+let oldCard = document.getElementById("oldCards")
 
 for(let event of data.events){
     let currentDate = new Date(data.currentDate);
@@ -8,7 +8,7 @@ for(let event of data.events){
 
     if (eventDate < currentDate) 
     {
-        pasteventscards += 
+        pastEventsCards += 
         `
         <div class="col mb-4">
             <div class="card past-card h-100 text-bg-dark border-dark">
@@ -28,4 +28,4 @@ for(let event of data.events){
         </div>
         `
     }
-} OldCard.innerHTML = pasteventscards;
+} oldCard.innerHTML = pastEventsCards;

@@ -1,9 +1,9 @@
-let currenteventscards = [];
+let currentEventsCards = [];
 
-let CurrentCard = document.getElementById("CurrentCards")
+let currentCard = document.getElementById("currentCards")
 
 for(let event of data.events){
-    currenteventscards += 
+    currentEventsCards += 
     `
     <div class="col mb-4">
         <div class="card h-100 text-bg-dark">
@@ -22,4 +22,4 @@ for(let event of data.events){
         </div>
     </div>
     `
-} CurrentCard.innerHTML = currenteventscards;
+} currentCard.innerHTML = currentEventsCards;

@@ -1,6 +1,6 @@
-let upcomingeventscards = [];
+let upcomingEventsCards = [];
 
-let UpcomingCard = document.getElementById("UpcomingCards")
+let upcomingCard = document.getElementById("upcomingCards")
 
 for(let event of data.events)
 {
@@ -9,7 +9,7 @@ for(let event of data.events)
 
     if (eventDate > currentDate) 
     {
-        upcomingeventscards += 
+        upcomingEventsCards += 
         `
         <div class="col mb-4">
             <div class="card h-100 text-bg-dark">
@@ -29,4 +29,4 @@ for(let event of data.events)
         </div>
         `
     }
-} UpcomingCard.innerHTML = upcomingeventscards;
+} upcomingCard.innerHTML = upcomingEventsCards;

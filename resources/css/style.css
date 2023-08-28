@@ -229,6 +229,11 @@ footer>p {
     margin: 5px;
 }
 
+footer>p>a {
+    text-decoration: none;
+    color: #b20a59;
+}
+
 .icon-item {
     list-style: none;
 }
