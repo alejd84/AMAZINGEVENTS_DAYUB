@@ -1,4 +1,4 @@
-let currenteventscards = "";
+let currenteventscards = [];
 
 let CurrentCard = document.getElementById("CurrentCards")
 

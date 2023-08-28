@@ -1,4 +1,4 @@
-let pasteventscards = "";
+let pasteventscards = [];
 
 let OldCard = document.getElementById("OldCards")
 

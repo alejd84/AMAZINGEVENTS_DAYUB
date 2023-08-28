@@ -1,4 +1,4 @@
-let upcomingeventscards = "";
+let upcomingeventscards = [];
 
 let UpcomingCard = document.getElementById("UpcomingCards")
 
