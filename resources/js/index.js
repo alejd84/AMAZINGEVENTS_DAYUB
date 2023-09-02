@@ -111,7 +111,7 @@ function createCard(array) {
                         </span>
                         ${array.date}
                     </p>
-                    <a class="btn btn-outline-danger detailsClass" href="./details.html?id=${array._id}" aria-label="Details for ${array.name}"><span>Details</span></a>
+                    <a class="button button-primary button-ghost button-shine detailsClass" href="./details.html?id=${array._id}" aria-label="Details for ${array.name}"><span>Details</span></a>
                 </div>
             </div>
         </div>  

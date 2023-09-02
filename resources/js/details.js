@@ -94,8 +94,8 @@ function createCardDetail(event) {
                     </ul>
                 </div>
                 <div class="detailsBtns d-flex flex-row justify-content-around align-items-center">
-                    <a class="btn btn-outline-secondary detailsClass m-3" href="#" onclick="history.back();" aria-label="Go Back"><span>Go Back</span></a>
-                    <a class="btn btn-outline-success detailsClasss m-3" href="#" aria-label="Buy Ticket"><span>Buy Ticket</span></a>
+                    <a class="buttongoback detailsClass m-3" href="#" onclick="history.back();" aria-label="Go Back"><span>Go Back</span></a>
+                    <a class="button button-primary button-ghost button-shine detailsClasss m-3" href="#" aria-label="Buy Ticket"><span>Buy Ticket</span></a>
                 </div>
             </div>
         </div>
