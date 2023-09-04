@@ -4,20 +4,20 @@ const containernoresultsCards = document.getElementById("noresultsCards");
 const title = document.getElementById("title");
 const searchId = document.getElementById("searchId");
 
-async function getFullEvents() {
+async function getallEvents() {
     const eventsDate = data.currentDate
     const eventsData = data.events
 
-    const eventsComplete = eventsData.map((element) => element)
+    const alleventsCards = eventsData.map((element) => element)
 
-    const eventsHome = eventsComplete.filter(() => title.text.includes('Home'))
-    const eventsUpcoming = eventsComplete.filter(() => title.text.includes('Upcoming')).filter(element => element.date > eventsDate)
-    const eventsPast = eventsComplete.filter(() => title.text.includes('Past')).filter(element => element.date < eventsDate)
+    const currentEvents = alleventsCards.filter(() => title.text.includes('Home'))
+    const upcomingEvents = alleventsCards.filter(() => title.text.includes('Upcoming')).filter(element => element.date > eventsDate)
+    const passedEvents = alleventsCards.filter(() => title.text.includes('Past')).filter(element => element.date < eventsDate)
 
-    let fullEvents = [...eventsHome, ...eventsUpcoming, ...eventsPast]
-    fullEvents.forEach(createCard)
+    let allEvents = [...currentEvents, ...upcomingEvents, ...passedEvents]
+    allEvents.forEach(createCard)
 
-    const categories = eventsComplete.reduce((allCategories, event) => Array.from(new Set([...allCategories, event.category])), [])
+    const categories = alleventsCards.reduce((allCategories, event) => Array.from(new Set([...allCategories, event.category])), [])
 
     categories.forEach(createCheckbox)
 
@@ -27,7 +27,7 @@ async function getFullEvents() {
     searchId.addEventListener('input', filterCheckCards)
 
     function filterCheckCards() {
-        let filteredChecks = checkEvents(fullEvents)
+        let filteredChecks = checkEvents(allEvents)
         let filteredSearch = filterCardsBySearch(filteredChecks, searchId.value)
         if (filteredSearch.length !== 0) {
             containerCards.innerHTML = ``
@@ -118,4 +118,4 @@ function createCard(array) {
     `;
 }
 
-getFullEvents()
+getallEvents()
