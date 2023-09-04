@@ -7,6 +7,7 @@ eventDetails = eventDetails[0]
 
 createCardDetail(eventDetails)
 
+//TEST3 TO CREATE CARDS
 function createCardDetail(event) {
     let AorE
     if (event.assistance !== undefined) {
@@ -94,8 +95,10 @@ function createCardDetail(event) {
                     </ul>
                 </div>
                 <div class="detailsBtns d-flex flex-row justify-content-around align-items-center">
-                    <a class="buttongoback detailsClass m-3" href="#" onclick="history.back();" aria-label="Go Back"><span>Go Back</span></a>
-                    <a class="button button-primary button-ghost button-shine detailsClasss m-3" href="#" aria-label="Buy Ticket"><span>Buy Ticket</span></a>
+                    <a class="buttongoback detailsClass m-3" href="#" onclick="history.back();" aria-label="Go Back"><i
+                    class="fa fa-chevron-left"></i><span class="ml-half"> Go Back</span></a>
+                    <a class="button button-primary button-ghost button-shine detailsClasss m-3" href="#" aria-label="Buy Ticket"><i
+                    class="fa fa-credit-card"></i><span class="ml-half"> Buy Ticket</span></a>
                 </div>
             </div>
         </div>

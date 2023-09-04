@@ -26,6 +26,7 @@
 
     <!--HEADER -->
     <header id="target">
+        <!--MAIN NAV -->
         <nav class="navbar sticky-top navbar-expand-lg bg-dark navbar-dark" data-bs-theme="dark" id="topnavbar">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
@@ -48,7 +49,17 @@
                     </nav>
                 </div>
             </div>
+            <!--CALENDAR -->
+            <div class="calendar">
+                <div class="calendar-body">
+                    <span class="month-name">Month</span>
+                    <span class="day-name">Day</span>
+                    <span class="date-number">00</span>
+                    <span class="year">0000</span>
+                </div>
+            </div>
         </nav>
+        <!--SECOND NAV -->
         <nav class="header-container d-flex justify-content-around">
             <div class="container-fluid">
                 <div class="row" id="secondnav">
@@ -69,13 +80,17 @@
 
     <main class="p-2">
         <!-- CATEGORIES -->
-        <div class="search-bar d-flex flex-wrap justify-content-md-between align-items-center" id="search-bar">
+        <div class="search-bar d-flex flex-wrap justify-content-md-around align-items-center" id="search-bar">
             <div class="category d-flex flex-wrap justify-content-center" id="checkboxes">
                 <!-- CATEGORIES HERE -->
             </div>
+            <!--SEARCHBOX -->
             <div class="search">
-                <input type="text" class="searchclass filter" id="searchId" placeholder="Search Events..."
+                <input type="text" class="searchclass filter search__input" id="searchId" placeholder="Search Events..."
                     autofocus="autofocus">
+                <button type="button" class="search__button">
+                    <i class="fas fa-search"></i>
+                </button>
             </div>
         </div>
 
@@ -96,16 +111,19 @@
         <div class="social">
             <ul class="icon-list d-flex">
                 <li class="icon-item">
-                    <a class="icon-link buttonfooter button-primary button-ghost button-shine btn-floating m-1" href="https://www.instagram.com/"
-                        role="button"><i class="fa-brands fa-square-instagram" id="instagram"></i></a>
+                    <a class="icon-link buttonfooter button-primary button-ghost button-shine btn-floating m-1"
+                        href="https://www.instagram.com/" role="button"><i class="fa-brands fa-square-instagram"
+                            id="instagram"></i></a>
                 </li>
                 <li class="icon-item">
-                    <a class="icon-link buttonfooter button-primary button-ghost button-shine btn-floating m-1" href="https://www.facebook.com/"
-                        role="button"><i class="fa-brands fa-square-facebook" id="facebook"></i></a>
+                    <a class="icon-link buttonfooter button-primary button-ghost button-shine btn-floating m-1"
+                        href="https://www.facebook.com/" role="button"><i class="fa-brands fa-square-facebook"
+                            id="facebook"></i></a>
                 </li>
                 <li class="icon-item">
-                    <a class="icon-link buttonfooter button-primary button-ghost button-shine btn-floating m-1" href="https://www.twitter.com/"
-                        role="button"><i class="fa-brands fa-square-twitter" id="twitter"></i></a>
+                    <a class="icon-link buttonfooter button-primary button-ghost button-shine btn-floating m-1"
+                        href="https://www.twitter.com/" role="button"><i class="fa-brands fa-square-twitter"
+                            id="twitter"></i></a>
                 </li>
             </ul>
         </div>

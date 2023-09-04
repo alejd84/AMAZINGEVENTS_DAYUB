@@ -1,4 +1,4 @@
-const containerCheckbox = document.getElementById('checkboxes');
+const containerCheckbox = document.getElementById("checkboxes");
 const containerCards = document.getElementById("currentCards");
 const containernoresultsCards = document.getElementById("noresultsCards");
 const title = document.getElementById("title");
@@ -46,6 +46,7 @@ async function getallEvents() {
     }
 }
 
+//TEST1 TO CREATE CARDS
 function createCheckbox(category) {
     let label = document.createElement("label")
     label.classList.add("d-flex", "align-items-center", "p-1")
@@ -89,6 +90,7 @@ function searchEmpty() {
     `;
 }
 
+//TEST2 TO CREATE CARDS
 function createCard(array) {
     containerCards.innerHTML +=
         `
