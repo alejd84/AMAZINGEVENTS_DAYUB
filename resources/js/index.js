@@ -1,18 +1,18 @@
 const containerCheckbox = document.getElementById("checkboxes");
 const containerCards = document.getElementById("currentCards");
 const containernoresultsCards = document.getElementById("noresultsCards");
-const title = document.getElementById("title");
+const titleId = document.getElementById("titleId");
 const searchId = document.getElementById("searchId");
 
-async function getallEvents() {
+async function includeallEvents() {
     const eventsDate = data.currentDate
     const eventsData = data.events
 
     const alleventsCards = eventsData.map((element) => element)
 
-    const currentEvents = alleventsCards.filter(() => title.text.includes('Home'))
-    const upcomingEvents = alleventsCards.filter(() => title.text.includes('Upcoming')).filter(element => element.date > eventsDate)
-    const passedEvents = alleventsCards.filter(() => title.text.includes('Past')).filter(element => element.date < eventsDate)
+    const currentEvents = alleventsCards.filter(() => titleId.text.includes('Home'))
+    const upcomingEvents = alleventsCards.filter(() => titleId.text.includes('Upcoming')).filter(element => element.date > eventsDate)
+    const passedEvents = alleventsCards.filter(() => titleId.text.includes('Past')).filter(element => element.date < eventsDate)
 
     let allEvents = [...currentEvents, ...upcomingEvents, ...passedEvents]
     allEvents.forEach(createCard)
@@ -120,4 +120,4 @@ function createCard(array) {
     `;
 }
 
-getallEvents()
+includeallEvents()

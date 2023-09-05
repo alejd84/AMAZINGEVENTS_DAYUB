@@ -1,4 +1,4 @@
-const containerDetails = document.getElementById("DetailedCards");
+const containerDetails = document.getElementById("detailedCards");
 
 let eventsData = data.events
 let id = location.search.slice(4)
