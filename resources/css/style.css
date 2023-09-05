@@ -482,9 +482,11 @@ div.card-footer button.btnsforDetails {
 .card{
     border: 1px solid #b20a58b2;
     border-radius: 0 0 1em 1em;  
-    background-color: rgba(36, 36, 36, 0.7) !important; 
+    background: linear-gradient(226deg, rgba(151, 151, 151, 0.4) 0%, rgba(36, 36, 36, 0.2) 42%, rgba(0, 0, 0, 0) 60%);
     overflow: hidden;
     backdrop-filter: blur(15px);
+    will-change: transform;
+    transition: transform 0.65s cubic-bezier(0.18, 0.9, 0.58, 1);    
 }
 
 .card:hover{
@@ -492,12 +494,14 @@ div.card-footer button.btnsforDetails {
     position: relative;
     top: -3px;
     left: -3px;
+    transform: rotateX(7deg) translateY(-6px);    
 }
 
 .card#nocardshadowmoveid {
     display: flex; 
     justify-content: center; 
     align-items: center;
+    transform: none;  
 }
 
 .card:hover#nocardshadowmoveid {
@@ -505,6 +509,7 @@ div.card-footer button.btnsforDetails {
     position: relative;
     top: 0px;
     left: 0px;    
+    transform: none;  
 }
 
 .card:hover#noresultsmsgid {
@@ -882,27 +887,27 @@ text-shadow: 0px 0px 6px #0072ff,
 }
 
 @keyframes backgroundimages {
-    0%   {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url(../resources/images/banner/optional-banner-1.jpg) !important; 
+    0%   {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url("https://alejd84.github.io/AMAZINGEVENTS_DAYUB//resources/images/banner/optional-banner-1.jpg") !important; 
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
         max-width: 100%;}
-    25%  {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url(../resources/images/banner/optional-banner-2.jpg) !important; 
+    25%  {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url("https://alejd84.github.io/AMAZINGEVENTS_DAYUB//resources/images/banner/optional-banner-2.jpg") !important; 
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
         max-width: 100%;}
-    50%  {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url(../resources/images/banner/optional-banner-3.jpg) !important; 
+    50%  {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url("https://alejd84.github.io/AMAZINGEVENTS_DAYUB//resources/images/banner/optional-banner-3.jpg") !important; 
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
         max-width: 100%;}
-    75%  {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url(../resources/images/banner/optional-banner-4.jpg) !important; 
+    75%  {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url("https://alejd84.github.io/AMAZINGEVENTS_DAYUB//resources/images/banner/optional-banner-4.jpg") !important; 
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
         max-width: 100%;}
-    100% {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url(../resources/images/banner/optional-banner-5.jpg) !important; 
+    100% {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url("https://alejd84.github.io/AMAZINGEVENTS_DAYUB//resources/images/banner/optional-banner-5.jpg") !important; 
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
