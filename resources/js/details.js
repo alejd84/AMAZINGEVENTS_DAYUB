@@ -17,7 +17,7 @@ function createCardDetail(event) {
             <div class="row align-items-center">
                 <div class="col-md-4">
                     <img src="${event.image}" class="img-fluid img-thumbnail"
-                        alt="${event.name}">
+                        alt="${event.name}" id="comingimg">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
@@ -98,7 +98,7 @@ function createCardDetail(event) {
             <div class="row align-items-center">
                 <div class="col-md-4">
                     <img src="${event.image}" class="img-fluid img-thumbnail" style="filter: grayscale(100%);"
-                        alt="${event.name}">
+                        alt="${event.name}" id="passedimg">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
