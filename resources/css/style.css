@@ -154,7 +154,7 @@ a.nav-link {
 }
 
 .navbar#topnavbar{
-    background-color: #1a1a1a !important;
+    background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0);
     animation: backgroundimages !important;
     animation-duration: 30s !important;
     animation-iteration-count: infinite !important;    
@@ -882,27 +882,27 @@ text-shadow: 0px 0px 6px #0072ff,
 }
 
 @keyframes backgroundimages {
-    0%   {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url(/resources/images/banner/optional-banner-1.jpg); 
+    0%   {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url(../resources/images/banner/optional-banner-1.jpg) !important; 
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
         max-width: 100%;}
-    25%  {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url(/resources/images/banner/optional-banner-2.jpg); 
+    25%  {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url(../resources/images/banner/optional-banner-2.jpg) !important; 
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
         max-width: 100%;}
-    50%  {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url(/resources/images/banner/optional-banner-3.jpg); 
+    50%  {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url(../resources/images/banner/optional-banner-3.jpg) !important; 
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
         max-width: 100%;}
-    75%  {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url(/resources/images/banner/optional-banner-4.jpg); 
+    75%  {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url(../resources/images/banner/optional-banner-4.jpg) !important; 
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
         max-width: 100%;}
-    100% {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url(/resources/images/banner/optional-banner-5.jpg); 
+    100% {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url(../resources/images/banner/optional-banner-5.jpg) !important; 
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
