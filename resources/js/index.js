@@ -4,15 +4,21 @@ const containernoresultsCards = document.getElementById("noresultsCards");
 const titleId = document.getElementById("titleId");
 const searchId = document.getElementById("searchId");
 
-async function includeallEvents() {
-    const eventsDate = data.currentDate
-    const eventsData = data.events
+async function includeallEventsFnc() {
+    try {
+        var eventsData = await fetch('https://mindhub-xj03.onrender.com/api/amazing')
+        eventsData = await eventsData.json()
+    } catch (error) {
+        console.log("Not working...", error);
+        throw new Error("We couldnt get API data. Try again later.");
+    }
 
-    const alleventsCards = eventsData.map((element) => element)
-
+    const eventsDateInfo = eventsData.currentDate
+    const eventsDataInfo = eventsData.events
+    const alleventsCards = eventsDataInfo.map((element) => element)
     const currentEvents = alleventsCards.filter(() => titleId.text.includes('Home'))
-    const upcomingEvents = alleventsCards.filter(() => titleId.text.includes('Upcoming')).filter(element => element.date > eventsDate)
-    const passedEvents = alleventsCards.filter(() => titleId.text.includes('Past')).filter(element => element.date < eventsDate)
+    const upcomingEvents = alleventsCards.filter(() => titleId.text.includes('Upcoming')).filter(element => element.date > eventsDateInfo)
+    const passedEvents = alleventsCards.filter(() => titleId.text.includes('Past')).filter(element => element.date < eventsDateInfo)
 
     let allEvents = [...currentEvents, ...upcomingEvents, ...passedEvents]
     allEvents.forEach(createCard)
@@ -54,14 +60,14 @@ function createCheckbox(category) {
     let input = document.createElement("input")
     input.type = "checkbox"
     input.classList.add("checkboxes", "checkId", "custom-checkbox", "categories")
-    input.checked = true
+    input.checked = false
     input.name = category
     input.value = category
     input.id = category
     input.setAttribute("aria-label", category)
 
     let span = document.createElement("span")
-    span.textContent = ">" + category
+    span.textContent = "\u00A0" + category
 
     label.appendChild(input)
     label.appendChild(span)
@@ -120,4 +126,4 @@ function createCard(array) {
     `;
 }
 
-includeallEvents()
+includeallEventsFnc()

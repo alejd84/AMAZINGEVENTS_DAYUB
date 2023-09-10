@@ -356,6 +356,26 @@ button.btn-outline-light {
     border-radius: 0 0 0.5em 0.5em;  
 }
 
+.buttonCategories {
+    --hue: 332;
+    position: relative;
+    padding: 0.75rem;
+    font-size: 1rem;
+    line-height: 1;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: hsl(var(--hue), 89%, 37%);
+    border: 1px solid hsl(var(--hue), 89%, 37%);
+    outline: transparent;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    transition: 0.6s;
+    border-radius: 0.5em 0 0 0.5em;  
+}
+
 .button:hover {
     background: hsl(var(--hue), 89%, 27%);
 }
@@ -473,6 +493,13 @@ button.btn-outline-light {
     font-size: 1.25rem;
 }
 
+/* Dropdown Button */
+ul.dropdown-menu {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    backdrop-filter: blur(15px) !important;
+}
+
 div.card-footer button.btnsforDetails {
     background: white !important;
     color: #b20a59 !important;
@@ -570,8 +597,10 @@ h5.card-title#nounderlineid {
     background-color: #3d3d3d !important; 
 }
 
-.img-fluid {
+.img-thumbnail {
     overflow: hidden !important;
+    width: 500px !important;
+    height: 230px !important;
 }
 
 form>fieldset {
@@ -586,29 +615,13 @@ form>fieldset {
     animation: text-focus-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) -0.1s both;
 }
 
-.stats-container {
-    padding-bottom: 5rem;
+.stats-container{
+    background-color: rgba(36, 36, 36, .5);
+    margin-top: 2.15em;
 }
 
-.stats-container table caption h3 {
-    font-weight: 800;
-    color: whitesmoke;
-    padding-top: 1.5rem;
-}
-
-.stats-table tbody tr td:nth-child(2) {
-    color: whitesmoke;
-    text-shadow: -1px 2px 5px rgb(77, 255, 0);
-}
-
-.stats-table tbody tr td:nth-child(3) {
-    color: whitesmoke;
-    text-shadow: -1px 2px 5px rgb(255, 0, 0);
-}
-
-.stats-table tbody tr td:nth-child(4) {
-    color: whitesmoke;
-    text-shadow: -1px 2px 5px rgba(0, 0, 0, 0.5);
+.stats-container th{
+    background-color: #b20a5870;
 }
 
 /* CONTACT-SECTION */

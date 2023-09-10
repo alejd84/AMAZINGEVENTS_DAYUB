@@ -77,12 +77,20 @@
             </div>
         </nav>
     </header>
-
+    <!-- MAIN -->
     <main class="p-2">
         <!-- CATEGORIES -->
         <div class="search-bar d-flex flex-wrap justify-content-md-around align-items-center" id="search-bar">
-            <div class="category d-flex flex-wrap justify-content-center" id="checkboxes">
-                <!-- CATEGORIES HERE -->
+            <div class="dropdown">
+                <button type="button" class="buttonCategories button-primary button-ghost button-shine dropdown-toggle"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    CATEGORIES
+                </button>
+                <ul class="dropdown-menu">
+                    <div class="category d-lg-inline-flex justify-content-between align-items-center" id="checkboxes">
+                        <!-- CATEGORIES HERE -->
+                    </div>
+                </ul>
             </div>
             <!--SEARCHBOX -->
             <div class="search">
@@ -132,7 +140,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
-    <script src="./resources/js/data.js"></script>
     <script src="./resources/js/index.js"></script>
     <script src="./resources/js/backtotop.js"></script>
 </body>

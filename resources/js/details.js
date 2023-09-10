@@ -1,18 +1,27 @@
 const containerDetails = document.getElementById("detailedCards");
-const currentDate = data.currentDate
 
-let eventsData = data.events
-let id = location.search.slice(4)
-let eventDetails = eventsData.filter(event => id == event._id)
-eventDetails = eventDetails[0]
+async function detailsCardsFnc() {
+    let id = location.search.slice(4)
+    try {
+        var eventsData = await fetch('https://mindhub-xj03.onrender.com/api/amazing')
+        eventsData = await eventsData.json()
+    } catch (error) {
+        console.log("Not working...", error);
+        throw new Error("We couldnt get API data. Try again later.");
+    }
 
-createCardDetail(eventDetails)
+    const eventsDateInfo = eventsData.currentDate
+    const eventsDataInfo = eventsData.events
+    const alleventsCards = eventsDataInfo.map((element) => element)
+    let eventDetails = alleventsCards.filter(event => id == event._id)
+    eventDetails = eventDetails[0]
+    createCardDetail(eventDetails)
 
-//TEST3 TO CREATE CARDS
-function createCardDetail(event) {
-    if (currentDate <= event.date) {
-        // COMING
-        containerDetails.innerHTML = `
+    //CREATE CARDS
+    function createCardDetail(event) {
+        if (eventsDateInfo <= event.date) {
+            // COMING
+            containerDetails.innerHTML = `
         <div class="card text-bg-dark mb-3 col-12 col-lg-10 shadow" id="nocardshadowmoveid">
             <div class="row align-items-center">
                 <div class="col-md-4">
@@ -91,9 +100,9 @@ function createCardDetail(event) {
             </div>
         </div>    
         `
-    } else {
-        // PASSED
-        containerDetails.innerHTML = `
+        } else {
+            // PASSED
+            containerDetails.innerHTML = `
         <div class="card text-bg-dark mb-3 col-12 col-lg-10 shadow" id="nocardshadowmoveid">
             <div class="row align-items-center">
                 <div class="col-md-4">
@@ -162,5 +171,9 @@ function createCardDetail(event) {
             </div>
         </div>    
         `
+        }
     }
 }
+
+detailsCardsFnc()
+
