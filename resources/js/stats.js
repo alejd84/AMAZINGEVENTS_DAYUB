@@ -1,95 +1,157 @@
-const tablebodymain = document.getElementById("tablebody-main");
-const tBodyUpcoming = document.getElementById("tablebody-UE");
-const tBodyPast = document.getElementById("tablebody-PE");
+let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
 
-async function statsCardsFnc() {
+async function includeAllDataFnc() {
     try {
-        var eventsData = await fetch('https://mindhub-xj03.onrender.com/api/amazing')
-        eventsData = await eventsData.json()
-    } catch (error) {
-        console.log("Not working...", error);
-        throw new Error("We couldnt get API data. Try again later.");
+        const response = await fetch(urlApi)
+        const data = await response.json();
+
+        let passedEventsArray = filterEvents(data, "past")
+        let passedEventsArray0 = filterEventsInfo1(passedEventsArray)
+        let passedEventsSorted = sortEventsByPercentage(passedEventsArray0)
+        createTopEvents(passedEventsSorted)
+
+        let upcomingEventsArray = filterEvents(data, "upcoming")
+        let upcomingEventsArray1 = filterEventsInfo2(upcomingEventsArray)
+        let upcomingEventsGroups = groupEventsByCategory(upcomingEventsArray1)
+        createCategoryTable(upcomingEventsGroups, "upcoming")
+
+        let passedEventsArray1 = filterEventsInfo2(passedEventsArray)
+        let passedEventsGroups = groupEventsByCategory(passedEventsArray1)
+        createCategoryTable(passedEventsGroups, "past")
+    }
+    catch (error) {
+        console.log("We couldnt get API data. Try again later.", error);
+    }
+}
+includeAllDataFnc();
+
+const filterEvents = (arrayData, time) => {
+    let filteredArray = []
+    if (time == "past") {
+        filteredArray = arrayData.events.filter(event => event.date < arrayData.currentDate);
+    } else if (time == "upcoming") {
+        filteredArray = arrayData.events.filter(event => event.date >= arrayData.currentDate);
+    }
+    return filteredArray
+}
+
+const filterEventsInfo1 = (arrayData) => {
+    let results = []
+    arrayData.forEach(event => {
+        let result = {};
+        result.id = event._id
+        result.name = event.name
+        result.capacity = event.capacity
+        result.percentage = (100 * event.assistance) / event.capacity;
+        results.push(result)
+    });
+    return results
+}
+
+const sortEventsByPercentage = (arrayData) => {
+    let sortedEvents = arrayData.sort(
+        (e1, e2) => (e1.percentage < e2.percentage) ? 1 : (e1.percentage > e2.percentage) ? -1 : 0);
+    return sortedEvents
+}
+
+const sortEventsByCapacity = (arrayData) => {
+    let sortedEvents = arrayData.sort(
+        (e1, e2) => (e1.capacity < e2.capacity) ? 1 : (e1.capacity > e2.capacity) ? -1 : 0);
+    return sortedEvents
+}
+
+const createTopEvents = (arrayData) => {
+    const haRows = document.querySelectorAll(".highAssist")
+    const laRows = document.querySelectorAll(".lowAssist")
+    const lcRows = document.querySelectorAll(".largeCapacity")
+    for (let i = 0; i < 3; i++) {
+        haRows[i].innerHTML =
+            `
+            <a href="./details.html?id=${arrayData[i].id}">${arrayData[i].name} </a>
+            <span>(${(arrayData[i].percentage).toFixed(2)}%)</span>
+            `
     }
 
-    const eventsDateInfo = eventsData.currentDate
-    const eventsDataInfo = eventsData.events
+    arrayData.reverse()
+    for (let i = 0; i < 3; i++) {
+        laRows[i].innerHTML =
+            `
+            <a href="./details.html?id=${arrayData[i].id}">${arrayData[i].name} </a>
+            <span>(${arrayData[i].percentage.toFixed(2)}%)</span>
+            `
+    }
 
-    eventsDataInfo.map(event => {
-        if (event.assistance !== undefined) {
-            event.earnings = event.price * event.assistance
-            event.percentage = 100 * event.assistance / event.capacity
-        } else {
-            event.earnings = event.price * event.estimate
-            event.percentage = 100 * event.estimate / event.capacity
+    const byCapacityFnc = sortEventsByCapacity(arrayData)
+    for (let i = 0; i < 3; i++) {
+        lcRows[i].innerHTML =
+            `
+            <a href="./details.html?id=${byCapacityFnc[i].id}">${byCapacityFnc[i].name} </a>
+            <span>(${byCapacityFnc[i].capacity} people)</span>
+            `
+    }
+}
+
+const filterEventsInfo2 = (arrayData) => {
+    let results = []
+    arrayData.forEach(event => {
+        let result = {};
+        result.category = event.category
+        result.revenues = (event.price * event.estimate) || (event.price * event.assistance)
+        result.percentage = (100 * event.estimate) / event.capacity || (100 * event.assistance) / event.capacity;
+        results.push(result)
+    });
+    return results
+}
+
+const groupEventsByCategory = (arrayData) => {
+    let categoriesUnique = []
+    arrayData.forEach(event => {
+        if (!categoriesUnique.includes(event.category)) {
+            categoriesUnique.push(event.category);
         }
     })
-
-    let eventsUpcoming = eventsDataInfo.filter(event => event.date > eventsDateInfo)
-    let eventsPast = eventsDataInfo.filter(event => event.date < eventsDateInfo)
-    let categoryUpcoming = [...new Set(eventsUpcoming.map(event => event.category))]
-    let categoryPast = [...new Set(eventsPast.map(event => event.category))]
-
-    categoryUpcoming.map(category => {
-        let eventsUp = eventsUpcoming.filter(event => event.category === category)
-        return filter(eventsUp, 'estimate')
-    }).forEach(array => createStats(array, tBodyUpcoming))
-
-    categoryPast.map(category => {
-        let eventsPasted = eventsPast.filter(event => event.category === category)
-        return filter(eventsPasted, 'assistance')
-    }).forEach(array => createStats(array, tBodyPast))
-
-    function filter(events, property) {
-
-        let categorysData = {
-            category: "",
-            earnings: 0,
-            capacity: 0,
-            [property]: 0
-        }
-        let stats = events.reduce((event1, event2) => {
-            return {
-                category: event2.category,
-                earnings: event1.earnings + event2.earnings,
-                capacity: event1.capacity + event2.capacity,
-                [property]: event1[property] + event2[property]
+    categoriesUnique.sort()
+    let grouped = []
+    categoriesUnique.forEach(categor => {
+        let cat = {}
+        cat.category = ''
+        cat.revenues = 0
+        cat.percentage = 0
+        cat.events = 0
+        arrayData.forEach(event => {
+            if (event.category == categor) {
+                cat.category = categor
+                cat.revenues += event.revenues
+                cat.percentage += event.percentage
+                cat.events++
             }
-        }, categorysData)
-        stats.percentage = (100 * stats[property] / stats.capacity).toFixed(1)
-        return stats
+        })
+        cat.percentage = cat.percentage / cat.events
+        grouped.push(cat)
+    })
+    return grouped
+}
 
+const createCategoryTable = (arrayData, time) => {
+    let id = ''
+    if (time == "upcoming") {
+        id = "tablebody-UE"
+    } else if (time == "past") {
+        id = "tablebody-PE"
     }
-
-    let eventsAssistance = eventsDataInfo.filter(event => event.assistance !== undefined).sort((a, b) => a.percentage - b.percentage)
-
-    let eventsCapacity = eventsDataInfo.sort((a, b) => b.capacity - a.capacity)
-
-    let eventsAssCap = [eventsAssistance, eventsCapacity]
-
-
-    createStatsGeneral(eventsAssCap)
-}
-
-statsCardsFnc()
-
-function createStatsGeneral(eventsGeneral) {
-    tablebodymain.innerHTML +=
-        `
-    <tr>
-        <td class="text-secondary fw-semibold">${eventsGeneral[0][eventsGeneral[0].length - 1].name}</td></td>
-        <td class="text-secondary fw-semibold">${eventsGeneral[0][0].name}</td>
-        <td class="text-secondary fw-semibold">${eventsGeneral[1][0].name}</td>
-    </tr>
-    `
-}
-
-function createStats(category, container) {
-    container.innerHTML +=
-        `
-    <tr>
-        <td class="text-secondary fw-semibold">${category.category}</td></td>
-        <td class="text-secondary">$${category.earnings.toLocaleString("en-GB")}</td>
-        <td class="text-secondary">${category.percentage}%</td>
-    </tr>
-    `
+    const table = document.getElementById(id)
+    arrayData.forEach(event => {
+        table.innerHTML +=
+            `
+            <tr>
+                <td>${event.category}</td>
+                <td>$ ${event.revenues}</td>
+                <td>
+                    <div class="progress" role="progressbar" aria-valuenow="${event.percentage.toFixed(2)}" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar" style="width: ${event.percentage.toFixed(2)}%">${event.percentage.toFixed(2)}%</div>
+                    </div>
+                </td>
+            </tr>
+            `
+    })
 }

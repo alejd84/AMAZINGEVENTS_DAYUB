@@ -22,7 +22,7 @@
     <title id="titleId">Amazing Events | Stats</title>
 </head>
 
-<body class="full-container" id="bodybg">
+<body class="full-container d-flex flex-column min-vh-100" id="bodybg">
     <!--HEADER -->
     <header id="target">
         <!--MAIN NAV -->
@@ -49,6 +49,15 @@
                     </nav>
                 </div>
             </div>
+            <!--CALENDAR -->
+            <div class="calendar">
+                <div class="calendar-body">
+                    <span class="month-name">Month</span>
+                    <span class="day-name">Day</span>
+                    <span class="date-number">00</span>
+                    <span class="year">0000</span>
+                </div>
+            </div>
         </nav>
         <!--SECOND NAV -->
         <nav class="header-container d-flex justify-content-around">
@@ -69,45 +78,78 @@
         </nav>
     </header>
     <!-- MAIN -->
-    <main class="full-container-fluid d-flex flex-column justify-content-center align-items-center">
-        <table class="table table-dark table-border caption-top container table-hover stats-table stats-container">
-            <thead>
-                <tr>
-                    <th class="text-white fw-bold" colspan="3">EVENTS STATISTICS</th>
-                </tr>
-            </thead>
-            <tbody id="tablebody-main" class="table-group-divider">
-                <tr>
-                    <td class="text-success fw-semibold">Highest % of Attendance</td>
-                    <td class="text-danger fw-semibold">Lowest % of Attendance</td>
-                    <td class="text-warning fw-semibold">Larger Capacity</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
-                    <th class="text-white fw-bold" colspan="3">UPCOMING EVENTS STATISTICS BY CATEGORY</th>
-                </tr>
-            </thead>
-            <tbody id="tablebody-UE" class="table-group-divider">
-                <tr>
-                    <td class="text-white fw-semibold">Categories</td>
-                    <td class="text-white fw-semibold">Revenues</td>
-                    <td class="text-white fw-semibold">% of Attendance</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
-                    <th class="text-white fw-bold" colspan="3">PAST EVENTS STATISTICS BY CATEGORY</th>
-                </tr>
-            </thead>
-            <tbody id="tablebody-PE" class="table-group-divider">
-                <tr>
-                    <td class="text-white fw-semibold">Categories</td>
-                    <td class="text-white fw-semibold">Revenues</td>
-                    <td class="text-white fw-semibold">% of Attendance</td>
-                </tr>
-            </tbody>
-        </table>
+    <main>
+        <section>
+            <div class="container stats-container">
+                <h3 class="text-white fw-bold">EVENTS STATISTICS</h3>
+                <div class="stats-table-container">
+                    <table
+                        class="table table-dark table-borderless text-warning caption-top table-sm align-middle table-hover stats-table stats-container container">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="text-success fw-semibold p-2 text-success">Highest % of
+                                    Attendance</th>
+                                <th scope="col" class="text-danger fw-semibold p-2 text-danger">Lowest % of Attendance
+                                </th>
+                                <th scope="col" class="text-warning fw-semibold p-2 text-info">Larger Capacity</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider" id="tablebody-main">
+                            <tr>
+                                <td class="px-3 py-2 highAssist">--</td>
+                                <td class="px-3 py-2 lowAssist">--</td>
+                                <td class="px-3 py-2 largeCapacity">--</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2 highAssist">--</td>
+                                <td class="px-3 py-2 lowAssist">--</td>
+                                <td class="px-3 py-2 largeCapacity">--</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2 highAssist">--</td>
+                                <td class="px-3 py-2 lowAssist">--</td>
+                                <td class="px-3 py-2 largeCapacity">--</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row column-gap-5 px-3">
+                    <table
+                        class="col table table-light table-striped table-hover table-bordered caption-top shadow" id="tableUE">
+                        <caption>
+                            <h3 class="text-white">UPCOMING EVENTS STATISTICS BY CATEGORY</h3>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col" class="text-white fw-semibold col-3">Categories</th>
+                                <th scope="col" class="text-white fw-semibold col-4">Revenues</th>
+                                <th scope="col" class="text-white fw-semibold col-5">% of Attendance</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider align-middle" id="tablebody-UE">
+                            <!-- STATISTICS HERE -->
+                        </tbody>
+                    </table>
+                    <table
+                        class="col table table-danger table-striped table-hover table-bordered caption-top shadow" id="tablePE">
+                        <caption>
+                            <h3 class="text-white">PAST EVENTS STATISTICS BY CATEGORY</h3>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col" class="text-white fw-semibold col-3">Categories</th>
+                                <th scope="col" class="text-white fw-semibold col-4">Revenues</th>
+                                <th scope="col" class="text-white fw-semibold col-5">% of Attendance</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider align-middle" id="tablebody-PE">
+                            <!-- STATISTICS HERE -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <button class="scrollToTopBtn">⬆</button>
     </main>
 
     <!-- FOOTER -->
@@ -137,6 +179,7 @@
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
     <script src="./resources/js/stats.js"></script>
+    <script src="./resources/js/backtotop.js"></script>
 </body>
 
 </html>

@@ -48,7 +48,7 @@ body, html {
 
 main {
     flex-grow: 1;
-    padding: 5.6rem 0 5rem 0;
+    padding: 2rem 0 5rem 0;
 }
 
 h1 {
@@ -616,12 +616,36 @@ form>fieldset {
 }
 
 .stats-container{
-    background-color: rgba(36, 36, 36, .5);
+    background-color: transparent;
     margin-top: 2.15em;
 }
 
 .stats-container th{
     background-color: #b20a5870;
+    text-align: center;
+}
+
+td.highAssist,td.lowAssist,td.largeCapacity {
+    text-align: center;
+    background-color: transparent;
+}
+
+div.stats-table-container {
+    background-color: transparent;
+	border: 1px solid #b20a58b2;
+	border-radius: 0.25em;
+    border-top: 0;
+}
+
+table#tableUE,table#tablePE {
+    background-color: transparent;
+	border: 1px solid #b20a58b2;
+	border-radius: 0.25em;
+}
+
+div.progress-bar {
+    background-color: rgba(36, 36, 36, 0.75) !important;
+    border: 1px solid #b20a58b2 !important;
 }
 
 /* CONTACT-SECTION */
