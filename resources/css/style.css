@@ -153,11 +153,52 @@ a.nav-link {
     transform: scale(1.1);      
 }
 
-.navbar#topnavbar{
-    background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0);
-    animation: backgroundimages !important;
-    animation-duration: 30s !important;
-    animation-iteration-count: infinite !important;    
+.navbar#topnavbar1{
+    background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url("https://alejd84.github.io/AMAZINGEVENTS_DAYUB/resources/images/banner/optional-banner-1.jpg") !important; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    max-width: 100%;
+}
+
+.navbar#topnavbar2{
+    background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url("https://alejd84.github.io/AMAZINGEVENTS_DAYUB/resources/images/banner/optional-banner-2.jpg") !important; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    max-width: 100%;
+}
+
+.navbar#topnavbar3{
+    background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url("https://alejd84.github.io/AMAZINGEVENTS_DAYUB/resources/images/banner/optional-banner-3.jpg") !important; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    max-width: 100%;
+}
+
+.navbar#topnavbar4{
+    background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url("https://alejd84.github.io/AMAZINGEVENTS_DAYUB/resources/images/banner/optional-banner-4.jpg") !important; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    max-width: 100%;
+}
+
+.navbar#topnavbar5{
+    background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url("https://alejd84.github.io/AMAZINGEVENTS_DAYUB/resources/images/banner/optional-banner-5.jpg") !important; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    max-width: 100%;
+}
+
+.navbar#topnavbar6{
+    background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url("https://alejd84.github.io/AMAZINGEVENTS_DAYUB/resources/images/banner/optional-banner-1.jpg") !important; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    max-width: 100%;
 }
 
 [aria-current]:not([aria-current="false"]) {
@@ -921,34 +962,6 @@ text-shadow: 0px 0px 6px #0072ff,
         filter: blur(0px);
         opacity: 1;
     }
-}
-
-@keyframes backgroundimages {
-    0%   {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url("https://alejd84.github.io/AMAZINGEVENTS_DAYUB//resources/images/banner/optional-banner-1.jpg") !important; 
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        max-width: 100%;}
-    25%  {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url("https://alejd84.github.io/AMAZINGEVENTS_DAYUB//resources/images/banner/optional-banner-2.jpg") !important; 
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        max-width: 100%;}
-    50%  {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url("https://alejd84.github.io/AMAZINGEVENTS_DAYUB//resources/images/banner/optional-banner-3.jpg") !important; 
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        max-width: 100%;}
-    75%  {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url("https://alejd84.github.io/AMAZINGEVENTS_DAYUB//resources/images/banner/optional-banner-4.jpg") !important; 
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        max-width: 100%;}
-    100% {background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.7), #b20a58b0),url("https://alejd84.github.io/AMAZINGEVENTS_DAYUB//resources/images/banner/optional-banner-5.jpg") !important; 
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        max-width: 100%;}
 }
 
 @keyframes animate{
